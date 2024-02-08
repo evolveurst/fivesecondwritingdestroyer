@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Clear Input</title>
+  <script>
+    var typingTimer;
+    var doneTypingInterval = 5000; // 5 seconds
+
+    function startTimer() {
+      clearTimeout(typingTimer);
+      typingTimer = setTimeout(clearInput, doneTypingInterval);
+    }
+
+    function clearInput() {
+      var inputElement = document.getElementById('myInput');
+      inputElement.value = '';
+    }
+  </script>
+</head>
+<body>
+  <input type="text" id="myInput" onkeyup="startTimer()" placeholder="Type here">
+</body>
+</html>
